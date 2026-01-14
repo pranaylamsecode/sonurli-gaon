@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="col-lg-7 text-center">
-          <img src="images/contact-hero.html" class="img-fluid" alt="Contact Gram Panchayat" />
+          <img src="images/new_folder/2.jpeg" class="img-fluid" alt="Contact Gram Panchayat" />
         </div>
       </div>
     </div>
@@ -106,29 +106,35 @@
               </div>
             </div>
 
-            <form>
+            <div id="form-message-success" class="mb-4" style="display:none;">
+              <div class="alert alert-success" role="alert">
+                <strong>धन्यवाद!</strong> तुमचा संदेश आम्हाला मिळाला आहे. आम्ही लवकरच तुमच्याशी संपर्क साधू.
+              </div>
+            </div>
+
+            <form id="contactForm">
               <div class="row">
                 <div class="col-6">
                   <div class="form-group">
                     <label class="text-black" for="fname">पहिले नाव</label>
-                    <input type="text" class="form-control" id="fname">
+                    <input type="text" class="form-control" id="fname" required>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
                     <label class="text-black" for="lname">आडनाव</label>
-                    <input type="text" class="form-control" id="lname">
+                    <input type="text" class="form-control" id="lname" required>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label class="text-black" for="email">ईमेल पत्ता</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email" required>
               </div>
 
               <div class="form-group mb-5">
                 <label class="text-black" for="message">संदेश</label>
-                <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+                <textarea name="" class="form-control" id="message" cols="30" rows="5" required></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary-hover-outline">संदेश पाठवा</button>
@@ -149,7 +155,7 @@
           </div>
 
           <div class="address mt-3" style="font-size:16px; color:#333;">
-            <i class="fa fa-map-marker text-primary me-2"></i>
+            <i class="fas fa-map-marker-alt text-primary me-2"></i>
             <strong>पत्ता:</strong> V2W4+PQ6, सोनुर्ली, महाराष्ट्र 441108
           </div>
         </div>
@@ -164,16 +170,33 @@
   <!-- Footer placeholder -->
   <div id="footer"></div>
 
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tiny-slider.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    // Form Submission Handler
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent actual form submission
 
+      // Find the success message div
+      var successMessage = document.getElementById('form-message-success');
 
-</body>
-<!-- End Footer Section -->
+      // Show the message
+      successMessage.style.display = 'block';
 
+      // Optional: Scroll to message
+      successMessage.scrollIntoView({ behavior: 'smooth' });
 
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/tiny-slider.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/components.js"></script>
+      // Reset the form
+      this.reset();
+
+      // Hide message after 5 seconds (optional)
+      setTimeout(function () {
+        successMessage.style.display = 'none';
+      }, 5000);
+    });
+  </script>
 </body>
 
 
