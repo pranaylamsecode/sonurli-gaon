@@ -16,9 +16,19 @@
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/loader.css" rel="stylesheet" />
 </head>
 
 <body>
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <div class="loader-text">लोड होत आहे...</div>
+      <div class="loader-subtext">ग्रामपंचायत सोनुर्ली</div>
+    </div>
+  </div>
+
   <!-- Header placeholder -->
   <div id="header"></div>
 
@@ -56,7 +66,7 @@
           <div class="card border-0 shadow-sm rounded-4">
             <img src="images/team1.html" class="card-img-top rounded-top-4" alt="Sarpanch">
             <div class="card-body">
-              <h5 class="card-title" style="color:#14532d;">श्री. सुरज हरिभाऊ शिंदे </h5>
+              <h5 class="card-title" style="color:#14532d;">सौ. सुरेखा गणेश डायरे </h5>
               <p class="text-muted mb-2">सरपंच</p>
               <div>
                 <a href="#" class="text-dark me-2"><i class="fab fa-facebook"></i></a>
@@ -88,7 +98,7 @@
           <div class="card border-0 shadow-sm rounded-4">
             <img src="images/team3.html" class="card-img-top rounded-top-4" alt="Gram Sevak">
             <div class="card-body">
-              <h5 class="card-title" style="color:#14532d;">सौ. वर्षा विजय भड
+              <h5 class="card-title" style="color:#14532d;">सौ. माधुरी लाड
               </h5>
               <p class="text-muted mb-2">ग्रामसेवक</p>
               <div>
@@ -245,20 +255,37 @@
   </section>
   <!-- End Team Section -->
 
+
   <!-- Footer placeholder -->
   <div id="footer"></div>
 
 
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tiny-slider.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/components.js"></script>
 
+  <script>
+    // Image Fallback Script
+    document.addEventListener('DOMContentLoaded', function () {
+      const teamImages = document.querySelectorAll('.team-section img');
+      const placeholderImg = 'images/l.png'; // Using l.png as default placeholder
+
+      teamImages.forEach(img => {
+        img.onerror = function () {
+          this.onerror = null; // Prevent infinite loop if placeholder is missing
+          this.src = placeholderImg;
+          this.alt = 'Team Member Placeholder';
+        };
+        // Trigger error if src is empty or bad extension (like .html)
+        if (!img.src || img.src.endsWith('.html')) {
+          img.src = placeholderImg;
+        }
+      });
+    });
+  </script>
 </body>
-<!-- End Footer Section -->
 
-
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/tiny-slider.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/components.js"></script>
-</body>
 
 
 <!-- Mirrored from psl.com/team.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 14 Jan 2026 04:46:20 GMT -->
