@@ -21,7 +21,7 @@ foreach ($file in $files) {
         
         # Add components.js if not already present
         if ($content -notmatch 'components\.js') {
-            $content = $content -replace '(<script src="js/custom\.js"></script>)', '$1`r`n<script src="js/components.js"></script>'
+            $content = $content -replace '(<script src="js/custom\.js"></script>)', '$1<script src="js/components.js"></script>'
         }
         
         # Save the file

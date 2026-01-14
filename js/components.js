@@ -3,7 +3,7 @@
  * Loads header and footer components into all pages
  */
 
-(function() {
+(function () {
   'use strict';
 
   // Load a component from a file and inject it into the target element
@@ -28,6 +28,18 @@
       });
   }
 
+  // Hide page loader
+  function hideLoader() {
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+      loader.classList.add('hidden');
+      // Remove from DOM after transition
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
+    }
+  }
+
   // Load both header and footer when DOM is ready
   function initComponents() {
     // Load header first (priority)
@@ -39,9 +51,13 @@
       })
       .then(() => {
         console.log('Footer loaded successfully');
+        // Hide loader after all components loaded
+        hideLoader();
       })
       .catch(error => {
         console.error('Component loading failed:', error);
+        // Hide loader even if there's an error
+        hideLoader();
       });
   }
 

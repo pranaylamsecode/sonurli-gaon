@@ -12,11 +12,11 @@
   <meta name="description" content="ग्रामपंचायत" />
   <meta name="keywords" content="bootstrap, grampanchayat, marathi website" />
 
-  <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <link href="css/tiny-slider.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
+  <link href="css/loader.css" rel="stylesheet" />
   <title>ग्रामपंचायत सोनुर्ली</title>
 
   <style>
@@ -607,9 +607,20 @@
       }
     }
   </style>
+  <!-- Loader CSS -->
+  <link rel="stylesheet" href="css/loader.css">
 </head>
 
 <body>
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <div class="loader-text">लोड होत आहे...</div>
+      <div class="loader-subtext">ग्रामपंचायत सोनुर्ली</div>
+    </div>
+  </div>
+
   <!-- Header placeholder -->
   <div id="header"></div>
 
@@ -829,348 +840,366 @@
   </section>
 
 
-  <section class="water-section container">
-    <!-- Header box with purple border -->
-    <div class="water-header">
-      <h3>ग्रामपंचायत अंतर्गत पाणी पुरवठा बाबत माहिती</h3>
+  <!-- Water Supply Section -->
+  <section class="py-5" style="background-color: #f8f9fa;">
+    <div class="container">
+      <div class="water-section">
+        <!-- Header box with purple border -->
+        <div class="water-header">
+          <h3>ग्रामपंचायत अंतर्गत पाणी पुरवठा बाबत माहिती</h3>
 
-      <div class="water-notes">
-        <ol>
-          <li>नळ योजना विहिरिची संख्या &nbsp;&nbsp; : - &nbsp; 2 विहिरी (विहिरगांव १, अड्याळी १)</li>
-          <li>नळ योजना देवाणघेवाण ची संख्या &nbsp;&nbsp; : - &nbsp; 5 देवाणघेवाण (विहिरगांव ४, अड्याळी १)</li>
-          <li>पाणी शुद्धीकरण केंद्र (ATM आणि मशीन) &nbsp;&nbsp; : - &nbsp; 02 केंद्र (विहिरगांव -1, अड्याळी -1)</li>
-        </ol>
+          <div class="water-notes">
+            <ol>
+              <li>नळ योजना विहिरिची संख्या &nbsp;&nbsp; : - &nbsp; 2 विहिरी (विहिरगांव १, अड्याळी १)</li>
+              <li>नळ योजना देवाणघेवाण ची संख्या &nbsp;&nbsp; : - &nbsp; 5 देवाणघेवाण (विहिरगांव ४, अड्याळी १)</li>
+              <li>पाणी शुद्धीकरण केंद्र (ATM आणि मशीन) &nbsp;&nbsp; : - &nbsp; 02 केंद्र (विहिरगांव -1, अड्याळी -1)</li>
+            </ol>
 
-        <p style="margin-top:10px; font-weight:700; color:#b91c1c;">
-          1) विहिरीचे पाणी मोजण्याचे सूत्र: व्यासाचा वर्ग × पाण्याची खोली (मीटर) × 785 = एकूण पाणी लिटर<br>
-          2) टाकीचे पाणी मोजण्याचे सूत्र: लांबी (मी) × रुंदी(मी) × पाण्याची खोली (मी) = एकूण पाणी लिटर
-        </p>
+            <p style="margin-top:10px; font-weight:700; color:#b91c1c;">
+              1) विहिरीचे पाणी मोजण्याचे सूत्र: व्यासाचा वर्ग × पाण्याची खोली (मीटर) × 785 = एकूण पाणी लिटर<br>
+              2) टाकीचे पाणी मोजण्याचे सूत्र: लांबी (मी) × रुंदी(मी) × पाण्याची खोली (मी) = एकूण पाणी लिटर
+            </p>
+          </div>
+        </div>
+
+        <!-- Table Card -->
+        <div class="water-table-card">
+          <table class="water-table" role="table" aria-label="Water supply table">
+            <thead>
+              <tr>
+                <th>अ.क्र.</th>
+                <th>गावाचे नाव</th>
+                <th>लोकसंख्या</th>
+                <th>पाण्याच्या टाकीची क्षमता</th>
+                <th>सार्वजनिक विहीर</th>
+                <th>खाजगी विहीर</th>
+                <th>योग्य हात पंप</th>
+                <th>कायम स्वरूपी नळ योजना</th>
+                <th>पुरक नळयोजना</th>
+                <th>लघु नळयोजना</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="text-center">1</td>
+                <td><a href="#" class="village-name">विहिरगांव</a></td>
+                <td class="text-center">1342</td>
+                <td class="text-center">75000</td>
+                <td class="text-center">1</td>
+                <td class="text-center">0</td>
+                <td class="text-center">5</td>
+                <td class="text-center">4</td>
+                <td class="text-center">0</td>
+                <td class="text-center">0</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">2</td>
+                <td><a href="#" class="village-name">अड्याळी</a></td>
+                <td class="text-center">380</td>
+                <td class="text-center">15000</td>
+                <td class="text-center">1</td>
+                <td class="text-center">0</td>
+                <td class="text-center">4</td>
+                <td class="text-center">1</td>
+                <td class="text-center">0</td>
+                <td class="text-center">0</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">3</td>
+                <td><a href="#" class="village-name">नदीपलीकडे</a></td>
+                <td class="text-center">62</td>
+                <td class="text-center">7000</td>
+                <td class="text-center">0</td>
+                <td class="text-center">0</td>
+                <td class="text-center">0</td>
+                <td class="text-center">1</td>
+                <td class="text-center">0</td>
+                <td class="text-center">0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-
-    <!-- Table Card -->
-    <div class="water-table-card">
-      <table class="water-table" role="table" aria-label="Water supply table">
-        <thead>
-          <tr>
-            <th>अ.क्र.</th>
-            <th>गावाचे नाव</th>
-            <th>लोकसंख्या</th>
-            <th>पाण्याच्या टाकीची क्षमता</th>
-            <th>सार्वजनिक विहीर</th>
-            <th>खाजगी विहीर</th>
-            <th>योग्य हात पंप</th>
-            <th>कायम स्वरूपी नळ योजना</th>
-            <th>पुरक नळयोजना</th>
-            <th>लघु नळयोजना</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td class="text-center">1</td>
-            <td><a href="#" class="village-name">विहिरगांव</a></td>
-            <td class="text-center">1342</td>
-            <td class="text-center">75000</td>
-            <td class="text-center">1</td>
-            <td class="text-center">0</td>
-            <td class="text-center">5</td>
-            <td class="text-center">4</td>
-            <td class="text-center">0</td>
-            <td class="text-center">0</td>
-          </tr>
-
-          <tr>
-            <td class="text-center">2</td>
-            <td><a href="#" class="village-name">अड्याळी</a></td>
-            <td class="text-center">380</td>
-            <td class="text-center">15000</td>
-            <td class="text-center">1</td>
-            <td class="text-center">0</td>
-            <td class="text-center">4</td>
-            <td class="text-center">1</td>
-            <td class="text-center">0</td>
-            <td class="text-center">0</td>
-          </tr>
-
-          <tr>
-            <td class="text-center">3</td>
-            <td><a href="#" class="village-name">नदीपलीकडे</a></td>
-            <td class="text-center">62</td>
-            <td class="text-center">7000</td>
-            <td class="text-center">0</td>
-            <td class="text-center">0</td>
-            <td class="text-center">0</td>
-            <td class="text-center">1</td>
-            <td class="text-center">0</td>
-            <td class="text-center">0</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </section>
   <!-- ================= End Water Supply Section ================= -->
 
-  <section class="jaljeevan-section container">
-    <!-- Title -->
-    <div class="text-center mb-3">
-      <div class="jaljeevan-title">
-        <h2>जलजीवन मिशन अंतर्गत नळ जोडणी बाबत माहिती</h2>
+  <!-- Jaljeevan Mission Section -->
+  <section class="py-5" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="jaljeevan-section">
+        <!-- Title -->
+        <div class="text-center mb-3">
+          <div class="jaljeevan-title">
+            <h2>जलजीवन मिशन अंतर्गत नळ जोडणी बाबत माहिती</h2>
+          </div>
+        </div>
+
+        <!-- Table card -->
+        <div class="jal-table-card">
+          <table class="jal-table" role="table" aria-label="जलजीवन नळ जोडणी माहिती">
+            <thead>
+              <tr>
+                <th>अ.क्र.</th>
+                <th>गावाचे नाव</th>
+                <th>ऑनलाइन कनेक्शन असलेली कुटुंब संख्या</th>
+                <th>नमुना 9 नुसार नळ कनेक्शन असलेली कुटुंब संख्या</th>
+                <th>पाणी पद्धती 9 नुसार नळ कनेक्शन असलेली कुटुंब संख्या</th>
+                <th>ऑनलाइन केलेली नळ कनेक्शन संख्या</th>
+                <th>शिल्लक असलेले नळ कनेक्शन संख्या</th>
+                <th>शेरा</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="village"><a class="village-link" href="#">विहिरगांव</a></td>
+                <td>289</td>
+                <td>245</td>
+                <td>245</td>
+                <td>245</td>
+                <td>0</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td class="village"><a class="village-link" href="#">अड्याळी</a></td>
+                <td>97</td>
+                <td>72</td>
+                <td>72</td>
+                <td>72</td>
+                <td>0</td>
+                <td></td>
+              </tr>
+
+              <!-- total row -->
+              <tr class="total-row">
+                <td></td>
+                <td class="village">एकूण</td>
+                <td>386</td>
+                <td>317</td>
+                <td>317</td>
+                <td>317</td>
+                <td>0</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-
-    <!-- Table card -->
-    <div class="jal-table-card">
-      <table class="jal-table" role="table" aria-label="जलजीवन नळ जोडणी माहिती">
-        <thead>
-          <tr>
-            <th>अ.क्र.</th>
-            <th>गावाचे नाव</th>
-            <th>ऑनलाइन कनेक्शन असलेली कुटुंब संख्या</th>
-            <th>नमुना 9 नुसार नळ कनेक्शन असलेली कुटुंब संख्या</th>
-            <th>पाणी पद्धती 9 नुसार नळ कनेक्शन असलेली कुटुंब संख्या</th>
-            <th>ऑनलाइन केलेली नळ कनेक्शन संख्या</th>
-            <th>शिल्लक असलेले नळ कनेक्शन संख्या</th>
-            <th>शेरा</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td class="village"><a class="village-link" href="#">विहिरगांव</a></td>
-            <td>289</td>
-            <td>245</td>
-            <td>245</td>
-            <td>245</td>
-            <td>0</td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td>2</td>
-            <td class="village"><a class="village-link" href="#">अड्याळी</a></td>
-            <td>97</td>
-            <td>72</td>
-            <td>72</td>
-            <td>72</td>
-            <td>0</td>
-            <td></td>
-          </tr>
-
-          <!-- total row -->
-          <tr class="total-row">
-            <td></td>
-            <td class="village">एकूण</td>
-            <td>386</td>
-            <td>317</td>
-            <td>317</td>
-            <td>317</td>
-            <td>0</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </section>
   <!-- ================= End Jaljeevan Block ================= -->
 
-  <section class="swachh-section">
-    <!-- Title -->
-    <div class="swachh-title">
-      <h1>स्वच्छ भारत अभियान बाबत माहिती</h1>
-      <p>एकूण कुटुंब संख्या — पैकी बेस लाइन सर्वे नुसार 100 टक्के शौचालय बांधकाम पूर्ण झाले आहे.</p>
-      <div class="swachh-sub">स्वच्छ भारत मिशन ग्रामीण अंतर्गत गावांची माहिती</div>
-    </div>
+  <!-- Swachh Bharat Section -->
+  <section class="py-5" style="background-color: #f8f9fa;">
+    <div class="container">
+      <div class="swachh-section">
+        <!-- Title -->
+        <div class="swachh-title">
+          <h1>स्वच्छ भारत अभियान बाबत माहिती</h1>
+          <p>एकूण कुटुंब संख्या — पैकी बेस लाइन सर्वे नुसार 100 टक्के शौचालय बांधकाम पूर्ण झाले आहे.</p>
+          <div class="swachh-sub">स्वच्छ भारत मिशन ग्रामीण अंतर्गत गावांची माहिती</div>
+        </div>
 
-    <!-- Card with table -->
-    <div class="swachh-card">
-      <div style="overflow:auto;">
-        <table class="swachh-table" role="table" aria-label="Swachh Bharat table">
-          <thead>
-            <tr>
-              <th>अ.क्र.</th>
-              <th>गावाचे नाव</th>
-              <th>गावाची एकूण लोकसंख्या</th>
-              <th>गावातील एकूण कुटुंब संख्या</th>
-              <th>वैधिक शौचालय असलेली एकूण कुटुंब संख्या</th>
-              <th>वैधिक शौचालयाचा लाभ दिलेले कुटुंब संख्या</th>
-              <th>सार्वजनिक शौचालयाची संख्या</th>
-              <th>हाणपदरि मुक्रिचा दिगांक</th>
-              <th>स्थापित शौचालय असलेल्य कुटुंबांची टक्केवारी</th>
-            </tr>
-          </thead>
+        <!-- Card with table -->
+        <div class="swachh-card">
+          <div style="overflow:auto;">
+            <table class="swachh-table" role="table" aria-label="Swachh Bharat table">
+              <thead>
+                <tr>
+                  <th>अ.क्र.</th>
+                  <th>गावाचे नाव</th>
+                  <th>गावाची एकूण लोकसंख्या</th>
+                  <th>गावातील एकूण कुटुंब संख्या</th>
+                  <th>वैधिक शौचालय असलेली एकूण कुटुंब संख्या</th>
+                  <th>वैधिक शौचालयाचा लाभ दिलेले कुटुंब संख्या</th>
+                  <th>सार्वजनिक शौचालयाची संख्या</th>
+                  <th>हाणपदरि मुक्रिचा दिगांक</th>
+                  <th>स्थापित शौचालय असलेल्य कुटुंबांची टक्केवारी</th>
+                </tr>
+              </thead>
 
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td class="left"><a href="#"
-                  style="color:#5b2a86; text-decoration:underline; font-weight:700;">विहिरगांव</a></td>
-              <td>1342</td>
-              <td>289</td>
-              <td>289</td>
-              <td>289</td>
-              <td>1</td>
-              <td>—</td>
-              <td><span class="badge-percent">100 टक्के</span></td>
-            </tr>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="left"><a href="#"
+                      style="color:#5b2a86; text-decoration:underline; font-weight:700;">विहिरगांव</a></td>
+                  <td>1342</td>
+                  <td>289</td>
+                  <td>289</td>
+                  <td>289</td>
+                  <td>1</td>
+                  <td>—</td>
+                  <td><span class="badge-percent">100 टक्के</span></td>
+                </tr>
 
-            <tr>
-              <td>2</td>
-              <td class="left"><a href="#"
-                  style="color:#5b2a86; text-decoration:underline; font-weight:700;">अड्याळी</a>
-              </td>
-              <td>383</td>
-              <td>97</td>
-              <td>97</td>
-              <td>97</td>
-              <td>1</td>
-              <td>—</td>
-              <td><span class="badge-percent">100 टक्के</span></td>
-            </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="left"><a href="#"
+                      style="color:#5b2a86; text-decoration:underline; font-weight:700;">अड्याळी</a>
+                  </td>
+                  <td>383</td>
+                  <td>97</td>
+                  <td>97</td>
+                  <td>97</td>
+                  <td>1</td>
+                  <td>—</td>
+                  <td><span class="badge-percent">100 टक्के</span></td>
+                </tr>
 
-            <tr class="total">
-              <td></td>
-              <td class="left">एकूण</td>
-              <td>1725</td>
-              <td>386</td>
-              <td>386</td>
-              <td>386</td>
-              <td>2</td>
-              <td>—</td>
-              <td><span class="badge-percent">100 टक्के</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                <tr class="total">
+                  <td></td>
+                  <td class="left">एकूण</td>
+                  <td>1725</td>
+                  <td>386</td>
+                  <td>386</td>
+                  <td>386</td>
+                  <td>2</td>
+                  <td>—</td>
+                  <td><span class="badge-percent">100 टक्के</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-      <!-- Footer actions -->
-      <div class="table-actions">
-        <small style="color:#666;">डेटा स्रोत: स्थानिक नोंदी / जनगणना</small>
+          <!-- Footer actions -->
+          <div class="table-actions">
+            <small style="color:#666;">डेटा स्रोत: स्थानिक नोंदी / जनगणना</small>
 
-      </div>
-    </div>
+          </div>
+        </div>
   </section>
 
-  <section class="nrega-section container">
+  <!-- NREGA Section -->
+  <section class="py-5" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="nrega-section">
 
-    <!-- Header -->
-    <div class="nrega-header">
-      <h2>ग्रामपंचायत कार्यालय विहिरगांव</h2>
-      <p>पंचायत समिती - नागपूर जिल्हा परिषद – नागपूर</p>
-      <p style="font-weight:700;">महात्मा गांधी, ग्रामीण रोजगार हमी योजना</p>
-      <p style="margin-top:6px;">सन २०१४-१५ — नरेगा योजनेतून झालेली कामे</p>
-      <div class="nrega-sub">२. महात्मा गांधी ग्रामीण रोजगार हमी योजना – जॉब कार्ड उदाहरण</div>
+        <!-- Header -->
+        <div class="nrega-header">
+          <h2>ग्रामपंचायत कार्यालय विहिरगांव</h2>
+          <p>पंचायत समिती - नागपूर जिल्हा परिषद – नागपूर</p>
+          <p style="font-weight:700;">महात्मा गांधी, ग्रामीण रोजगार हमी योजना</p>
+          <p style="margin-top:6px;">सन २०१४-१५ — नरेगा योजनेतून झालेली कामे</p>
+          <div class="nrega-sub">२. महात्मा गांधी ग्रामीण रोजगार हमी योजना – जॉब कार्ड उदाहरण</div>
+        </div>
+
+        <!-- Top small info table (single-row header style like screenshot) -->
+        <div class="nrega-card">
+          <table class="small-table nrega-table" role="table" aria-label="nrega small">
+            <thead>
+              <tr>
+                <th>अ.क्र.</th>
+                <th>ग्रामपंचायत चे नाव</th>
+                <th>जॉब कार्ड धारकांची संख्या</th>
+                <th>शेरा</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="left">विहिरगांव</td>
+                <td>326</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Main detailed table -->
+        <div class="nrega-card">
+          <table class="nrega-table" role="table" aria-label="nrega details">
+            <thead>
+              <tr>
+                <th>अ.क्र.</th>
+                <th>योजनेचे नाव</th>
+                <th>गावाचे नाव</th>
+                <th>कामाचे स्वरूप<br><small style="font-weight:600;">(सार्वजनिक / वैयक्तिक)</small></th>
+                <th>कामाच्या मंजुरीचा आधार (रु.)</th>
+                <th>अंतर्गत प्रमाणिक पद्धती/क्रमांक</th>
+                <th>वार्षिक मान्यता /प्रशासकीय मान्यता</th>
+                <th>कामाची स्थिती</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="left">म.ग्रा. नरेगा</td>
+                <td class="left">विहिरगांव</td>
+                <td>
+                  <div>वृक्षलागवड (सार्वजनिक)</div>
+                  <div style="font-size:13px;color:#5b2a86;margin-top:6px;">वैयक्तिक: 0</div>
+                </td>
+                <td>४००</td>
+                <td>३०१/१८८</td>
+                <td>१८/१०/२०१९ - २०२३</td>
+                <td>काम सुरु</td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td class="left">म.ग्रा. नरेगा</td>
+                <td class="left">विहिरगांव</td>
+                <td>
+                  <div>बांबू लागवड (सार्वजनिक)</div>
+                  <div style="font-size:13px;color:#5b2a86;margin-top:6px;">वैयक्तिक: 0</div>
+                </td>
+                <td>८००</td>
+                <td>१९०/२३७</td>
+                <td>१८/१०/२०१९ - २०२३</td>
+                <td>काम सुरु</td>
+              </tr>
+
+              <tr>
+                <td>3</td>
+                <td class="left">म.ग्रा. नरेगा</td>
+                <td class="left">अड्याळी</td>
+                <td>
+                  <div>वृक्ष व बांबू लागवड (सार्वजनिक)</div>
+                  <div style="font-size:13px;color:#5b2a86;margin-top:6px;">वैयक्तिक: 0</div>
+                </td>
+                <td>६००</td>
+                <td>१०६/२१३</td>
+                <td>१८/१०/२०१९ - २०२३</td>
+                <td>काम सुरु</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Lower small summary table -->
+        <div class="nrega-card">
+          <table class="small-table nrega-table" role="table" aria-label="nrega summary">
+            <thead>
+              <tr>
+                <th>अ.क्र.</th>
+                <th>गावाचे नाव</th>
+                <th>कामाचे नाव</th>
+                <th>रक्कम (लक्ष रुपये)</th>
+                <th>कामाची स्थिती</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="left">अड्याळी</td>
+                <td class="left">हर्बल नगर येथे सिमेंट रस्ता बांधकाम करणे</td>
+                <td>१५ लक्ष रुपये</td>
+                <td>काम सुरु</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
     </div>
-
-    <!-- Top small info table (single-row header style like screenshot) -->
-    <div class="nrega-card">
-      <table class="small-table nrega-table" role="table" aria-label="nrega small">
-        <thead>
-          <tr>
-            <th>अ.क्र.</th>
-            <th>ग्रामपंचायत चे नाव</th>
-            <th>जॉब कार्ड धारकांची संख्या</th>
-            <th>शेरा</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td class="left">विहिरगांव</td>
-            <td>326</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Main detailed table -->
-    <div class="nrega-card">
-      <table class="nrega-table" role="table" aria-label="nrega details">
-        <thead>
-          <tr>
-            <th>अ.क्र.</th>
-            <th>योजनेचे नाव</th>
-            <th>गावाचे नाव</th>
-            <th>कामाचे स्वरूप<br><small style="font-weight:600;">(सार्वजनिक / वैयक्तिक)</small></th>
-            <th>कामाच्या मंजुरीचा आधार (रु.)</th>
-            <th>अंतर्गत प्रमाणिक पद्धती/क्रमांक</th>
-            <th>वार्षिक मान्यता /प्रशासकीय मान्यता</th>
-            <th>कामाची स्थिती</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td class="left">म.ग्रा. नरेगा</td>
-            <td class="left">विहिरगांव</td>
-            <td>
-              <div>वृक्षलागवड (सार्वजनिक)</div>
-              <div style="font-size:13px;color:#5b2a86;margin-top:6px;">वैयक्तिक: 0</div>
-            </td>
-            <td>४००</td>
-            <td>३०१/१८८</td>
-            <td>१८/१०/२०१९ - २०२३</td>
-            <td>काम सुरु</td>
-          </tr>
-
-          <tr>
-            <td>2</td>
-            <td class="left">म.ग्रा. नरेगा</td>
-            <td class="left">विहिरगांव</td>
-            <td>
-              <div>बांबू लागवड (सार्वजनिक)</div>
-              <div style="font-size:13px;color:#5b2a86;margin-top:6px;">वैयक्तिक: 0</div>
-            </td>
-            <td>८००</td>
-            <td>१९०/२३७</td>
-            <td>१८/१०/२०१९ - २०२३</td>
-            <td>काम सुरु</td>
-          </tr>
-
-          <tr>
-            <td>3</td>
-            <td class="left">म.ग्रा. नरेगा</td>
-            <td class="left">अड्याळी</td>
-            <td>
-              <div>वृक्ष व बांबू लागवड (सार्वजनिक)</div>
-              <div style="font-size:13px;color:#5b2a86;margin-top:6px;">वैयक्तिक: 0</div>
-            </td>
-            <td>६००</td>
-            <td>१०६/२१३</td>
-            <td>१८/१०/२०१९ - २०२३</td>
-            <td>काम सुरु</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Lower small summary table -->
-    <div class="nrega-card">
-      <table class="small-table nrega-table" role="table" aria-label="nrega summary">
-        <thead>
-          <tr>
-            <th>अ.क्र.</th>
-            <th>गावाचे नाव</th>
-            <th>कामाचे नाव</th>
-            <th>रक्कम (लक्ष रुपये)</th>
-            <th>कामाची स्थिती</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td class="left">अड्याळी</td>
-            <td class="left">हर्बल नगर येथे सिमेंट रस्ता बांधकाम करणे</td>
-            <td>१५ लक्ष रुपये</td>
-            <td>काम सुरु</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
   </section>
   <!-- end majhi vasundhara -->
   <!-- Footer placeholder -->
