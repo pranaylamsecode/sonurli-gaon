@@ -23,36 +23,90 @@
     .team-member {
       position: relative;
       overflow: hidden;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      border: 1px solid rgba(26, 77, 46, 0.1);
+      background: rgba(255, 255, 255, 0.85) !important;
     }
 
     .team-member:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12) !important;
+      border-color: var(--deep-green);
+    }
+
+    .member-photo {
+      position: relative;
+      z-index: 1;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto;
+    }
+
+    .member-photo img {
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .team-member:hover .member-photo img {
+      transform: scale(1.08);
     }
 
     .team-overlay {
       position: absolute;
-      inset: 0;
-      background: rgba(28, 116, 48, 0.9);
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      height: 70%;
+      background: linear-gradient(to top, rgba(26, 77, 46, 1) 0%, rgba(26, 77, 46, 0.8) 50%, transparent 100%);
+      transition: bottom 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
+      padding: 0 20px 30px 20px;
+      z-index: 2;
     }
 
     .team-member:hover .team-overlay {
-      opacity: 1;
+      bottom: 0;
     }
 
     .team-overlay p {
       color: #fff;
       font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease 0.2s;
+      line-height: 1.5;
+    }
+
+    .team-member:hover .team-overlay p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(26, 77, 46, 0.08);
+      color: var(--deep-green) !important;
+      transition: all 0.3s ease;
+      margin: 0 6px;
+      font-size: 16px;
+    }
+
+    .social-link:hover {
+      background: var(--deep-green);
+      color: #fff !important;
+      transform: translateY(-3px) rotate(360deg);
+      box-shadow: 0 5px 15px rgba(26, 77, 46, 0.3);
     }
 
     .backdrop-blur {
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(10px);
     }
 
     .team-section h2 {
@@ -741,22 +795,25 @@
       <h2 class="fw-bold mb-3" style="color: var(--deep-green);">🌿 आमची ग्रामपंचायत टीम</h2>
       <p class="text-muted mb-5 fs-5">गावाच्या प्रगतीसाठी एकत्र काम करणारी जबाबदार नेतृत्व टीम</p>
 
-      <div class="row justify-content-center g-4">
+      <div class="row justify-content-center g-4 mb-5">
         <!-- Sarpanch -->
 
 
         <div class="col-lg-4 col-md-6">
-          <div class="team-member position-relative p-4 rounded-4 shadow-lg bg-white bg-opacity-75 backdrop-blur">
-            <div class="member-photo mb-3">
-              <img src="images/l.png" alt="Sarpanch" class="rounded-circle border border-3 border-success shadow"
+          <div class="team-member position-relative p-4 rounded-4 shadow-lg backdrop-blur h-100">
+            <div class="member-photo mb-4">
+              <img src="images/extra_new_image/e60bcfba-a08e-438d-afba-64e4cfbaa663.png" alt="Sarpanch"
+                class="rounded-circle border border-4 border-white shadow"
                 style="width:160px; height:160px; object-fit:cover;">
             </div>
-            <h4 class="fw-bold text-success">सौ. सुरेखा गणेश डायरे </h4>
-            <p class="text-secondary mb-1 fs-6">सर्पंच</p>
+            <h4 class="fw-bold text-deep-green mb-1">सौ. सुरेखा गणेश डायरे</h4>
+            <div class="mb-3">
+              <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill fs-6 fw-600">सरपंच</span>
+            </div>
             <div class="social mt-2">
-              <a href="#" class="text-success mx-2"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="text-success mx-2"><i class="fab fa-whatsapp"></i></a>
-              <a href="#" class="text-success mx-2"><i class="fas fa-envelope"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="team-overlay rounded-4">
               <p class="text-white px-3">
@@ -768,17 +825,21 @@
 
         <!-- Upasarpanch -->
         <div class="col-lg-4 col-md-6">
-          <div class="team-member position-relative p-4 rounded-4 shadow-lg bg-white bg-opacity-75 backdrop-blur">
-            <div class="member-photo mb-3">
-              <img src="images/l.png" alt="Upasarpanch" class="rounded-circle border border-3 border-success shadow"
+          <div class="team-member position-relative p-4 rounded-4 shadow-lg backdrop-blur h-100">
+            <div class="member-photo mb-4">
+              <img src="images/extra_new_image/f77176c2-7261-4d49-ad25-87ea44ed1091.png" alt="Upasarpanch"
+                class="rounded-circle border border-4 border-white shadow"
                 style="width:160px; height:160px; object-fit:cover;">
             </div>
-            <h4 class="fw-bold text-success">श्री. रोशन सुधाकर मोहर्ले</h4>
-            <p class="text-secondary mb-1 fs-6">उपसर्पंच</p>
+            <h4 class="fw-bold text-deep-green mb-1">श्री. रोशन सुधाकर मोहर्ले</h4>
+            <div class="mb-3">
+              <span
+                class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill fs-6 fw-600">उपसरपंच</span>
+            </div>
             <div class="social mt-2">
-              <a href="#" class="text-success mx-2"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="text-success mx-2"><i class="fab fa-whatsapp"></i></a>
-              <a href="#" class="text-success mx-2"><i class="fas fa-envelope"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="team-overlay rounded-4">
               <p class="text-white px-3">
@@ -789,17 +850,21 @@
         </div>
 
         <div class="col-lg-4 col-md-6">
-          <div class="team-member position-relative p-4 rounded-4 shadow-lg bg-white bg-opacity-75 backdrop-blur">
-            <div class="member-photo mb-3">
-              <img src="images/l.png" alt="Sachiv" class="rounded-circle border border-3 border-success shadow"
+          <div class="team-member position-relative p-4 rounded-4 shadow-lg backdrop-blur h-100">
+            <div class="member-photo mb-4">
+              <img src="images/extra_new_image/sachinve.png" alt="Sachiv"
+                class="rounded-circle border border-4 border-white shadow"
                 style="width:160px; height:160px; object-fit:cover;">
             </div>
-            <h4 class="fw-bold text-success">सौ. माधुरी लाड</h4>
-            <p class="text-secondary mb-1 fs-6">ग्रामसेवक / सचिव</p>
+            <h4 class="fw-bold text-deep-green mb-1">सौ. माधुरी लाड</h4>
+            <div class="mb-3">
+              <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill fs-6 fw-600">ग्रामसेवक /
+                सचिव</span>
+            </div>
             <div class="social mt-2">
-              <a href="#" class="text-success mx-2"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="text-success mx-2"><i class="fab fa-whatsapp"></i></a>
-              <a href="#" class="text-success mx-2"><i class="fas fa-envelope"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="team-overlay rounded-4">
               <p class="text-white px-3">
@@ -810,9 +875,146 @@
         </div>
 
         <!-- Sachiv -->
+      </div>
+      <div class="row justify-content-center g-4">
+
+        <!-- Gram Panchayat Members -->
+        <div class="col-12 mb-2 mt-5">
+          <h4 class="text-success fw-bold">🌿 ग्रामपंचायत सदस्य</h4>
+        </div>
+
+        <!-- Member 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="team-member position-relative p-4 rounded-4 shadow backdrop-blur h-100">
+            <div class="member-photo mb-3">
+              <img src="images/l.png" alt="Member" class="rounded-circle border border-4 border-white shadow"
+                style="width:120px; height:120px; object-fit:cover;">
+            </div>
+            <h5 class="fw-bold text-deep-green mb-1">श्री. गोपाल वडे</h5>
+            <div class="mb-2">
+              <span class="badge bg-success bg-opacity-10 text-success px-3 py-1 rounded-pill">ग्रामपंचायत सदस्य</span>
+            </div>
+            <div class="social">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="team-overlay rounded-4">
+              <p class="text-white px-3">गावाच्या विकासासाठी कटिबद्ध.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="team-member position-relative p-4 rounded-4 shadow backdrop-blur h-100">
+            <div class="member-photo mb-3">
+              <img src="images/l.png" alt="Member" class="rounded-circle border border-4 border-white shadow"
+                style="width:120px; height:120px; object-fit:cover;">
+            </div>
+            <h5 class="fw-bold text-deep-green mb-1">श्री. रामकृष्ण नागपुरे</h5>
+            <div class="mb-2">
+              <span class="badge bg-success bg-opacity-10 text-success px-3 py-1 rounded-pill">ग्रामपंचायत सदस्य</span>
+            </div>
+            <div class="social">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="team-overlay rounded-4">
+              <p class="text-white px-3">गावाच्या विकासासाठी कटिबद्ध.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="team-member position-relative p-4 rounded-4 shadow backdrop-blur h-100">
+            <div class="member-photo mb-3">
+              <img src="images/l.png" alt="Member" class="rounded-circle border border-4 border-white shadow"
+                style="width:120px; height:120px; object-fit:cover;">
+            </div>
+            <h5 class="fw-bold text-deep-green mb-1">सौ. संगीता ढोले</h5>
+            <div class="mb-2">
+              <span class="badge bg-success bg-opacity-10 text-success px-3 py-1 rounded-pill">ग्रामपंचायत सदस्य</span>
+            </div>
+            <div class="social">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="team-overlay rounded-4">
+              <p class="text-white px-3">गावाच्या विकासासाठी कटिबद्ध.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="team-member position-relative p-4 rounded-4 shadow backdrop-blur h-100">
+            <div class="member-photo mb-3">
+              <img src="images/l.png" alt="Member" class="rounded-circle border border-4 border-white shadow"
+                style="width:120px; height:120px; object-fit:cover;">
+            </div>
+            <h5 class="fw-bold text-deep-green mb-1">सौ. योगिता मांढरे</h5>
+            <div class="mb-2">
+              <span class="badge bg-success bg-opacity-10 text-success px-3 py-1 rounded-pill">ग्रामपंचायत सदस्य</span>
+            </div>
+            <div class="social">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="team-overlay rounded-4">
+              <p class="text-white px-3">गावाच्या विकासासाठी कटिबद्ध.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 5 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="team-member position-relative p-4 rounded-4 shadow backdrop-blur h-100">
+            <div class="member-photo mb-3">
+              <img src="images/l.png" alt="Member" class="rounded-circle border border-4 border-white shadow"
+                style="width:120px; height:120px; object-fit:cover;">
+            </div>
+            <h5 class="fw-bold text-deep-green mb-1">सौ. वैशाली वडे</h5>
+            <div class="mb-2">
+              <span class="badge bg-success bg-opacity-10 text-success px-3 py-1 rounded-pill">ग्रामपंचायत सदस्य</span>
+            </div>
+            <div class="social">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="team-overlay rounded-4">
+              <p class="text-white px-3">गावाच्या विकासासाठी कटिबद्ध.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 6 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="team-member position-relative p-4 rounded-4 shadow backdrop-blur h-100">
+            <div class="member-photo mb-3">
+              <img src="images/l.png" alt="Member" class="rounded-circle border border-4 border-white shadow"
+                style="width:120px; height:120px; object-fit:cover;">
+            </div>
+            <h5 class="fw-bold text-deep-green mb-1">सौ. रेणुका भलावी</h5>
+            <div class="mb-2">
+              <span class="badge bg-success bg-opacity-10 text-success px-3 py-1 rounded-pill">ग्रामपंचायत सदस्य</span>
+            </div>
+            <div class="social">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="team-overlay rounded-4">
+              <p class="text-white px-3">गावाच्या विकासासाठी कटिबद्ध.</p>
+            </div>
+          </div>
+        </div>
+
+
 
       </div>
+
     </div>
+
   </section>
   <!-- End Members Section -->
 
@@ -867,7 +1069,7 @@
 
           <div class="water-notes">
             <ol>
-              <li>नळ योजना विहिरिची संख्या &nbsp;&nbsp; : - &nbsp; १ विहिरी (सोनुर्ली १, सोनुर्ली १)</li>
+              <li>नळ योजना विहिरिची संख्या &nbsp;&nbsp; : - &nbsp; 2 विहिरी (सोनुर्ली 1, वाठोडा १)</li>
               <li>नळ योजना देवाणघेवाण ची संख्या &nbsp;&nbsp; : - &nbsp; 5 देवाणघेवाण (सोनुर्ली ४, सोनुर्ली १)</li>
               <li>पाणी शुद्धीकरण केंद्र (ATM आणि मशीन) &nbsp;&nbsp; : - &nbsp; 02 केंद्र (सोनुर्ली -1, सोनुर्ली -1)</li>
             </ol>
@@ -902,7 +1104,7 @@
                 <td class="text-center">1</td>
                 <td><a href="#" class="village-name">सोनुर्ली </a></td>
                 <td class="text-center">1342</td>
-                <td class="text-center">75000</td>
+                <td class="text-center">30000</td>
                 <td class="text-center">1</td>
                 <td class="text-center">0</td>
                 <td class="text-center">5</td>
@@ -911,31 +1113,9 @@
                 <td class="text-center">0</td>
               </tr>
 
-              <tr>
-                <td class="text-center">2</td>
-                <td><a href="#" class="village-name">सोनुर्ली </a></td>
-                <td class="text-center">380</td>
-                <td class="text-center">15000</td>
-                <td class="text-center">1</td>
-                <td class="text-center">0</td>
-                <td class="text-center">4</td>
-                <td class="text-center">1</td>
-                <td class="text-center">0</td>
-                <td class="text-center">0</td>
-              </tr>
 
-              <tr>
-                <td class="text-center">3</td>
-                <td><a href="#" class="village-name">नदीपलीकडे</a></td>
-                <td class="text-center">62</td>
-                <td class="text-center">7000</td>
-                <td class="text-center">0</td>
-                <td class="text-center">0</td>
-                <td class="text-center">0</td>
-                <td class="text-center">1</td>
-                <td class="text-center">0</td>
-                <td class="text-center">0</td>
-              </tr>
+
+
             </tbody>
           </table>
         </div>
