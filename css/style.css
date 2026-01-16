@@ -20,6 +20,31 @@ body {
   background-color: #eff2f1;
 }
 
+:root {
+  --deep-green: #1a4d2e;
+  --deep-green-dark: #143d24;
+}
+
+.text-deep-green {
+  color: var(--deep-green) !important;
+}
+
+.bg-deep-green {
+  background-color: var(--deep-green) !important;
+}
+
+.btn-deep-green {
+  background-color: var(--deep-green);
+  border-color: var(--deep-green);
+  color: #fff;
+}
+
+.btn-deep-green:hover {
+  background-color: var(--deep-green-dark);
+  border-color: var(--deep-green-dark);
+  color: #fff;
+}
+
 a {
   text-decoration: none;
   -webkit-transition: .3s all ease;
@@ -34,14 +59,39 @@ a:hover {
   text-decoration: none;
 }
 
-a.more {
-  font-weight: 600;
-}
-
 .custom-navbar {
   background: #2f3f6e !important;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero-title-animated {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.hero-subtitle-animated {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
 }
 
 .custom-navbar .navbar-brand {
@@ -180,7 +230,7 @@ a.more {
 
 .hero p {
   color: rgba(255, 255, 255, 0.5);
-  margin-botom: 30px;
+  margin-bottom: 30px;
 }
 
 .hero .hero-img-wrap {
@@ -457,7 +507,6 @@ a.more {
 .we-help-section .imgs-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[27];
   grid-template-columns: repeat(27, 1fr);
   position: relative;
 }
