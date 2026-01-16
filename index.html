@@ -118,6 +118,115 @@
       font-family: 'Noto Sans Devanagari', sans-serif;
     }
 
+    /* Gallery Styles */
+    .gallery-section {
+      background: linear-gradient(135deg, #f8fff8 0%, #eef8ee 100%);
+    }
+
+    .gallery-entry {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      background: #fff;
+    }
+
+    .gallery-entry:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(26, 77, 46, 0.15);
+    }
+
+    .gallery-entry img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-entry:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-entry h5 {
+      padding: 15px;
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--deep-green);
+      text-align: center;
+      background: #fff;
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .lightbox-content {
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lightbox .close:hover {
+      color: #4ade80;
+      transform: rotate(90deg);
+    }
+
+    .lightbox .prev,
+    .lightbox .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      padding: 16px 24px;
+      cursor: pointer;
+      user-select: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .lightbox .prev:hover,
+    .lightbox .next:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #4ade80;
+    }
+
+    .lightbox .prev {
+      left: 20px;
+    }
+
+    .lightbox .next {
+      right: 20px;
+    }
+
     /* majhi vasundhara */
 
     .vasundhara-section img {
@@ -1069,9 +1178,9 @@
 
           <div class="water-notes">
             <ol>
-              <li>नळ योजना विहिरिची संख्या &nbsp;&nbsp; : - &nbsp; 2 विहिरी (सोनुर्ली 1, वाठोडा १)</li>
-              <li>नळ योजना देवाणघेवाण ची संख्या &nbsp;&nbsp; : - &nbsp; 5 देवाणघेवाण (सोनुर्ली ४, सोनुर्ली १)</li>
-              <li>पाणी शुद्धीकरण केंद्र (ATM आणि मशीन) &nbsp;&nbsp; : - &nbsp; 02 केंद्र (सोनुर्ली -1, सोनुर्ली -1)</li>
+              <li>नळ योजना विहिरिची संख्या &nbsp;&nbsp; : - &nbsp; 2 विहिरी (सोनुर्ली १, वाठोडा १)</li>
+              <li>हँडपंप ची संख्या &nbsp;&nbsp; : - &nbsp; 3 (सोनुर्ली 2, वाठोडा १)</li>
+              <li>क्लोरीनेशन मशीन &nbsp;&nbsp; : - &nbsp; 01 केंद्र (सोनुर्ली 1)</li>
             </ol>
 
             <p style="margin-top:10px; font-weight:700; color:#b91c1c;">
@@ -1103,11 +1212,24 @@
               <tr>
                 <td class="text-center">1</td>
                 <td><a href="#" class="village-name">सोनुर्ली </a></td>
-                <td class="text-center">1342</td>
+                <td class="text-center">559</td>
+                <td class="text-center">30000</td>
+                <td class="text-center">2</td>
+                <td class="text-center">0</td>
+                <td class="text-center">2</td>
+                <td class="text-center">4</td>
+                <td class="text-center">0</td>
+                <td class="text-center">0</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">1</td>
+                <td><a href="#" class="village-name">वाठोडा </a></td>
+                <td class="text-center">188</td>
                 <td class="text-center">30000</td>
                 <td class="text-center">1</td>
                 <td class="text-center">0</td>
-                <td class="text-center">5</td>
+                <td class="text-center">1</td>
                 <td class="text-center">4</td>
                 <td class="text-center">0</td>
                 <td class="text-center">0</td>
@@ -1165,7 +1287,7 @@
 
               <tr>
                 <td>2</td>
-                <td class="village"><a class="village-link" href="#">सोनुर्ली </a></td>
+                <td class="village"><a class="village-link" href="#">वाठोडा </a></td>
                 <td>97</td>
                 <td>72</td>
                 <td>72</td>
@@ -1238,8 +1360,8 @@
 
                 <tr>
                   <td>2</td>
-                  <td class="left"><a href="#"
-                      style="color:#5b2a86; text-decoration:underline; font-weight:700;">सोनुर्ली </a>
+                  <td class="left"><a href="#" style="color:#5b2a86; text-decoration:underline; font-weight:700;">वाठोडा
+                    </a>
                   </td>
                   <td>383</td>
                   <td>97</td>
@@ -1395,9 +1517,160 @@
           </table>
         </div>
 
-      </div>
-    </div>
   </section>
+  <!-- End majhi vasundhara -->
+
+  <!-- Gallery Section -->
+  <section class="gallery-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold" style="color: var(--deep-green);">📷 फोटो गॅलरी</h2>
+        <p class="text-muted fs-5">ग्रामपंचायत सोनुर्लीचे विविध कार्यक्रम आणि उपक्रम</p>
+      </div>
+      <div class="row">
+        <!-- Row 1 -->
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(1)">
+            <img src="images/new_folder/1.jpeg" alt="Gallery Image 1" />
+            <h5>ग्रामपंचायत कार्यक्रम</h5>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(2)">
+            <img src="images/new_folder/2.jpeg" alt="Gallery Image 2" />
+            <h5>विकास कामे</h5>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(3)">
+            <img src="images/new_folder/3.jpeg" alt="Gallery Image 3" />
+            <h5>सांस्कृतिक कार्यक्रम</h5>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(4)">
+            <img src="images/new_folder/4.jpeg" alt="Gallery Image 4" />
+            <h5>स्वच्छता अभियान</h5>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(5)">
+            <img src="images/new_folder/tree-planting.jpg" alt="Gallery Image 5" />
+            <h5>वृक्षारोपण</h5>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(6)">
+            <img src="images/new_folder/6.jpeg" alt="Gallery Image 6" />
+            <h5>ग्रामसभा</h5>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(7)">
+            <img src="images/new_folder/7.jpeg" alt="Gallery Image 7" />
+            <h5>शालेय उपक्रम</h5>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(8)">
+            <img src="images/new_folder/HealthCamp.jpg" alt="Gallery Image 8" />
+            <h5>आरोग्य शिबीर</h5>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(9)">
+            <img src="images/new_folder/kida-spardha.jpg" alt="Gallery Image 9" />
+            <h5>क्रीडा स्पर्धा</h5>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(10)">
+            <img src="images/new_folder/mahila-medava.jpg" alt="Gallery Image 10" />
+            <h5>महिला मेळावा</h5>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(11)">
+            <img src="images/new_folder/11.jpeg" alt="Gallery Image 11" />
+            <h5>इतर उपक्रम</h5>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="gallery-entry" onclick="openLightbox(12)">
+            <img src="images/new_folder/12.jpeg" alt="Gallery Image 12" />
+            <h5>ग्रामपंचायत परिसर</h5>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!-- End Gallery Section -->
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" />
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  </div>
+
+  <!-- Lightbox Script -->
+  <script>
+    const galleryImages = [
+      'images/new_folder/1.jpeg',
+      'images/new_folder/2.jpeg',
+      'images/new_folder/3.jpeg',
+      'images/new_folder/4.jpeg',
+      'images/new_folder/tree-planting.jpg',
+      'images/new_folder/6.jpeg',
+      'images/new_folder/7.jpeg',
+      'images/new_folder/HealthCamp.jpg',
+      'images/new_folder/kida-spardha.jpg',
+      'images/new_folder/mahila-medava.jpg',
+      'images/new_folder/11.jpeg',
+      'images/new_folder/12.jpeg'
+    ];
+
+    let currentSlideIndex = 0;
+
+    function openLightbox(index) {
+      currentSlideIndex = index - 1;
+      showSlide(currentSlideIndex);
+      document.getElementById('lightbox').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function changeSlide(n) {
+      currentSlideIndex += n;
+      if (currentSlideIndex >= galleryImages.length) currentSlideIndex = 0;
+      else if (currentSlideIndex < 0) currentSlideIndex = galleryImages.length - 1;
+      showSlide(currentSlideIndex);
+    }
+
+    function showSlide(index) {
+      document.getElementById('lightbox-img').src = galleryImages[index];
+    }
+
+    // Close lightbox on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+  </script>
+
+
+
   <!-- end majhi vasundhara -->
   <!-- Footer placeholder -->
   <div id="footer"></div>

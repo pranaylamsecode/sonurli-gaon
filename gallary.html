@@ -15,102 +15,115 @@
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/loader.css" rel="stylesheet" />
   <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: #f8f9fa;
+    /* Gallery Styles */
+    .gallery-section {
+      background: linear-gradient(135deg, #f8fff8 0%, #eef8ee 100%);
     }
 
-    /* Gallery style */
     .gallery-entry {
+      position: relative;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      background: #fff;
     }
 
     .gallery-entry:hover {
-      transform: scale(1.04);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(26, 77, 46, 0.15);
     }
 
     .gallery-entry img {
       width: 100%;
       height: 250px;
       object-fit: cover;
-      border-radius: 10px;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-entry:hover img {
+      transform: scale(1.1);
     }
 
     .gallery-entry h5 {
-      margin-top: 10px;
-      text-align: center;
+      padding: 15px;
+      margin: 0;
+      font-size: 1.1rem;
       font-weight: 600;
-      color: #f9bf29;
+      color: var(--deep-green);
+      text-align: center;
+      background: #fff;
     }
 
-    /* Lightbox */
+    /* Lightbox Styles */
     .lightbox {
       display: none;
       position: fixed;
       z-index: 9999;
-      padding-top: 50px;
+      padding: 60px;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
+      justify-content: center;
+      align-items: center;
     }
 
     .lightbox-content {
-      position: relative;
-      margin: auto;
       display: block;
-      width: 80%;
-      max-width: 900px;
+      max-width: 90%;
+      max-height: 80%;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
     }
 
-    .close {
+    .lightbox .close {
       position: absolute;
       top: 20px;
       right: 35px;
-      color: white;
-      font-size: 40px;
+      color: #fff;
+      font-size: 50px;
       font-weight: bold;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .prev,
-    .next {
-      cursor: pointer;
+    .lightbox .close:hover {
+      color: #4ade80;
+      transform: rotate(90deg);
+    }
+
+    .lightbox .prev,
+    .lightbox .next {
       position: absolute;
       top: 50%;
-      width: auto;
-      padding: 16px;
-      color: white;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 40px;
       font-weight: bold;
-      font-size: 30px;
+      padding: 16px 24px;
+      cursor: pointer;
       user-select: none;
-      transition: 0.3s;
+      border-radius: 8px;
+      transition: all 0.3s ease;
     }
 
-    .prev:hover,
-    .next:hover {
-      color: #f9bf29;
+    .lightbox .prev:hover,
+    .lightbox .next:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #4ade80;
     }
 
-    .prev {
-      left: 0;
+    .lightbox .prev {
+      left: 20px;
     }
 
-    .next {
-      right: 0;
-    }
-
-    @media (max-width: 576px) {
-      .lightbox-content {
-        width: 95%;
-      }
+    .lightbox .next {
+      right: 20px;
     }
   </style>
 </head>
@@ -222,53 +235,6 @@
   </div>
 </div>
 
-<!-- Lightbox Script -->
-<script>
-  // Gallery Images Array
-  const galleryImages = [
-    'images/new_folder/1.jpeg',
-    'images/new_folder/2.jpeg',
-    'images/new_folder/3.jpeg',
-    'images/new_folder/4.jpeg',
-    'images/new_folder/5.jpeg',
-    'images/new_folder/6.jpeg',
-    'images/new_folder/7.jpeg',
-    'images/new_folder/8.jpeg',
-    'images/new_folder/9.jpeg',
-    'images/new_folder/10.jpeg',
-    'images/new_folder/11.jpeg',
-    'images/new_folder/12.jpeg'
-  ];
-
-  let currentSlideIndex = 0;
-
-  function openLightbox(index) {
-    currentSlideIndex = index - 1; // Convert 1-based to 0-based
-    showSlide(currentSlideIndex);
-    document.getElementById('lightbox').style.display = 'block';
-  }
-
-  function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-  }
-
-  function changeSlide(n) {
-    currentSlideIndex += n;
-    // Loop
-    if (currentSlideIndex >= galleryImages.length) {
-      currentSlideIndex = 0;
-    } else if (currentSlideIndex < 0) {
-      currentSlideIndex = galleryImages.length - 1;
-    }
-    showSlide(currentSlideIndex);
-  }
-
-  function showSlide(index) {
-    const imgPath = galleryImages[index];
-    document.getElementById('lightbox-img').src = imgPath;
-  }
-</script>
-
 <!-- Lightbox Modal -->
 <div id="lightbox" class="lightbox">
   <span class="close" onclick="closeLightbox()">&times;</span>
@@ -276,6 +242,55 @@
   <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
   <a class="next" onclick="changeSlide(1)">&#10095;</a>
 </div>
+
+<script>
+  const galleryImages = [
+    'images/new_folder/1.jpeg',
+    'images/new_folder/2.jpeg',
+    'images/new_folder/3.jpeg',
+    'images/new_folder/4.jpeg',
+    'images/new_folder/tree-planting.jpg',
+    'images/new_folder/6.jpeg',
+    'images/new_folder/7.jpeg',
+    'images/new_folder/HealthCamp.jpg',
+    'images/new_folder/kida-spardha.jpg',
+    'images/new_folder/mahila-medava.jpg',
+    'images/new_folder/11.jpeg',
+    'images/new_folder/12.jpeg'
+  ];
+
+  let currentSlideIndex = 0;
+
+  function openLightbox(index) {
+    currentSlideIndex = index - 1;
+    showSlide(currentSlideIndex);
+    document.getElementById('lightbox').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function changeSlide(n) {
+    currentSlideIndex += n;
+    if (currentSlideIndex >= galleryImages.length) currentSlideIndex = 0;
+    else if (currentSlideIndex < 0) currentSlideIndex = galleryImages.length - 1;
+    showSlide(currentSlideIndex);
+  }
+
+  function showSlide(index) {
+    document.getElementById('lightbox-img').src = galleryImages[index];
+  }
+
+  // Close lightbox on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') changeSlide(1);
+    if (e.key === 'ArrowLeft') changeSlide(-1);
+  });
+</script>
 <!-- Footer placeholder -->
 <div id="footer"></div>
 
